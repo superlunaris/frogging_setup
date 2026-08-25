@@ -47,7 +47,7 @@ public class PlayerSwinging : MonoBehaviour
         playerMovement.swinging = true;
 
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, maxSwingDistance, isSwingable))
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, maxSwingDistance))
         {
             swingPoint = hit.point;
             joint = playerModel.gameObject.AddComponent<SpringJoint>();
