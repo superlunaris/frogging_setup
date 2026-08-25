@@ -6104,7 +6104,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604983435}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6149,7 +6149,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: -6629797300637803691, guid: d92811088b2ce404fa05e75b4c11b26e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6183,7 +6183,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.10000038
+        value: 0.10928917
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -6195,7 +6195,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.42633596, b: 0.27843142, a: 1}
+      key0: {r: 1, g: 0.27843142, b: 0.4715153, a: 1}
       key1: {r: 1, g: 0.1462264, b: 0.2736961, a: 1}
       key2: {r: 1, g: 0.1462264, b: 0.2736961, a: 1}
       key3: {r: 1, g: 0.1462264, b: 0.2736961, a: 1}
