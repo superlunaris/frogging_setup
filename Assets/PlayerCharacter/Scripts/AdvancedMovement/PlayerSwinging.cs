@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerSwinging : MonoBehaviour
 {
     [Header("Input")]
     public KeyCode swingKey = KeyCode.Mouse0;
@@ -9,11 +9,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public LineRenderer lineRenderer;
     public Transform tongueTip, playerCamera, playerModel;
     public LayerMask isSwingable;
+    public PlayerMovement playerMovement;
 
     [Header("Swinging")]
     [SerializeField] private float maxSwingDistance = 25f;
     private Vector3 swingPoint;
     private SpringJoint joint;
+
+    [Header("Aerial")]
+    public Transform orientation;
+    public Rigidbody rigidBody;
+    public float horizontalForce;
+    public float forwardForce;
+    public float extendTongueSpeed;
 
     void Update()
     {
@@ -27,10 +35,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             StopSwing();
         }
+
+        if (joint != null)
+        {
+            AerialMobility();
+        }
     }
 
     private void StartSwing()
     {
+        playerMovement.swinging = true;
+
         RaycastHit hit;
         if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, maxSwingDistance, isSwingable))
         {
@@ -55,8 +70,52 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void StopSwing()
     {
+        playerMovement.swinging = false;
+
         lineRenderer.positionCount = 0;
         Destroy(joint);
+    }
+
+    private void AerialMobility()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            rigidBody.AddForce(orientation.right * horizontalForce * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            rigidBody.AddForce(-orientation.right * horizontalForce * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            rigidBody.AddForce(orientation.forward * forwardForce * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            rigidBody.AddForce(-orientation.forward * forwardForce * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Vector3 directionToPoint = swingPoint - transform.position;
+            rigidBody.AddForce(directionToPoint.normalized * forwardForce * Time.deltaTime);
+
+            float distanceFromPoint = Vector3.Distance(transform.position, swingPoint);
+
+            joint.maxDistance = distanceFromPoint * 0.8f;
+            joint.minDistance = distanceFromPoint * 0.25f;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            float extendedDistanceFromPoint = Vector3.Distance(transform.position, swingPoint) + extendTongueSpeed;
+
+            joint.maxDistance = extendedDistanceFromPoint * 0.8f;
+            joint.minDistance = extendedDistanceFromPoint * 0.25f;
+        }
     }
 
     private Vector3 currentTonguePosition;
