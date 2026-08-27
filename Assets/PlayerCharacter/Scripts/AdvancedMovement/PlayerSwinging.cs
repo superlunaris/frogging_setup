@@ -25,8 +25,6 @@ public class PlayerSwinging : MonoBehaviour
 
     void Update()
     {
-        DrawRope();
-
         if (Input.GetKeyDown(swingKey))
         {
             StartSwing();
@@ -40,6 +38,11 @@ public class PlayerSwinging : MonoBehaviour
         {
             AerialMobility();
         }
+    }
+
+    private void LateUpdate()
+    {
+        DrawRope();
     }
 
     private void StartSwing()
