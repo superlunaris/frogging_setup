@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode restartKey = KeyCode.R;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -63,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput();
         Acceleration();
         StateHandler();
+        
+        if (Input.GetKey(restartKey))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
         if (grounded)
             rigidBody.linearDamping = groundDrag;

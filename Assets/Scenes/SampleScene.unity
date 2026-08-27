@@ -3895,43 +3895,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.197
+      value: -23.737
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.168
+      value: 7.597
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.195
+      value: 3.421
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9959502
+      value: -0.11794103
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.02680242
+      value: 0.0031739594
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.08578742
+      value: 0.9926561
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0023086602
+      value: -0.026713774
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.038
+      value: 2.997
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 9.86
+      value: 193.57
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.528
+      value: 0.723
       objectReference: {fileID: 0}
     - target: {fileID: 3331529107869855, guid: fd27f20039fe0634c832f346d1106d87, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -6423,27 +6423,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4d3615538e5e6e54fa8c670b61fa2339, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.44021
+      value: 0.6684589
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3615538e5e6e54fa8c670b61fa2339, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.44021
+      value: 0.6684589
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3615538e5e6e54fa8c670b61fa2339, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.44021
+      value: 0.6684589
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3615538e5e6e54fa8c670b61fa2339, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.7
+      value: -22.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3615538e5e6e54fa8c670b61fa2339, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3615538e5e6e54fa8c670b61fa2339, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.93
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3615538e5e6e54fa8c670b61fa2339, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8682,6 +8682,7 @@ MonoBehaviour:
   airMultiplier: 0.08
   jumpKey: 32
   sprintKey: 304
+  restartKey: 114
   playerHeight: 0.1
   isGround:
     serializedVersion: 2
@@ -9379,7 +9380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1697206018
 Transform:
   m_ObjectHideFlags: 0
@@ -10223,7 +10224,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -10629,7 +10630,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3, y: 1, z: 5}
   m_Center: {x: 0, y: -0.2, z: 1}
