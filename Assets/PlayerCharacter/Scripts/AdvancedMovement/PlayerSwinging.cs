@@ -23,6 +23,11 @@ public class PlayerSwinging : MonoBehaviour
     public float forwardForce;
     public float extendTongueSpeed;
 
+    [Header("Ray-Prediction")]
+    public RaycastHit predictionHit;
+    public float predictionSphereCastRadius;
+    public Transform predictionPoint;
+
     void Update()
     {
         if (Input.GetKeyDown(swingKey))
