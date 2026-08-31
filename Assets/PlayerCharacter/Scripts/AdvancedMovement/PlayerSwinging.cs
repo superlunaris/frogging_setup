@@ -13,7 +13,7 @@ public class PlayerSwinging : MonoBehaviour
 
     [Header("Swinging")]
     [SerializeField] private float maxSwingDistance = 25f;
-    private Vector3 swingPoint;
+    private Vector3 swingPoint, currentTonguePosition;
     private SpringJoint joint;
 
     [Header("Aerial")]
@@ -30,6 +30,8 @@ public class PlayerSwinging : MonoBehaviour
 
     void Update()
     {
+        CheckForValidPoints();
+
         if (Input.GetKeyDown(swingKey))
         {
             StartSwing();
@@ -54,27 +56,26 @@ public class PlayerSwinging : MonoBehaviour
     {
         playerMovement.swinging = true;
 
-        RaycastHit hit;
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, maxSwingDistance))
-        {
-            swingPoint = hit.point;
-            joint = playerModel.gameObject.AddComponent<SpringJoint>();
-            joint.autoConfigureConnectedAnchor = false;
-            joint.connectedAnchor = swingPoint;
+        if (predictionHit.point == Vector3.zero) return;
 
-            float distanceFromPoint = Vector3.Distance(playerModel.position, swingPoint);
+        swingPoint = predictionHit.point;
+        joint = playerModel.gameObject.AddComponent<SpringJoint>();
+        joint.autoConfigureConnectedAnchor = false;
+        joint.connectedAnchor = swingPoint;
 
-            joint.maxDistance = distanceFromPoint * 0.8f;
-            joint.minDistance = distanceFromPoint * 0.25f;
+        float distanceFromPoint = Vector3.Distance(playerModel.position, swingPoint);
 
-            joint.spring = 4.5f;
-            joint.damper = 7f;
-            joint.massScale = 4.5f;
+        joint.maxDistance = distanceFromPoint * 0.8f;
+        joint.minDistance = distanceFromPoint * 0.25f;
 
-            lineRenderer.positionCount = 2;
-            currentTonguePosition = tongueTip.position;
-        }
+        joint.spring = 4.5f;
+        joint.damper = 7f;
+        joint.massScale = 4.5f;
+
+        lineRenderer.positionCount = 2;
+        currentTonguePosition = tongueTip.position;
     }
+
 
     private void StopSwing()
     {
@@ -126,7 +127,6 @@ public class PlayerSwinging : MonoBehaviour
         }
     }
 
-    private Vector3 currentTonguePosition;
 
     void DrawRope()
     {
@@ -136,6 +136,44 @@ public class PlayerSwinging : MonoBehaviour
 
         lineRenderer.SetPosition(0, tongueTip.position);
         lineRenderer.SetPosition(1, swingPoint);
+    }
+
+    private void CheckForValidPoints()
+    {
+        if (joint != null) return;
+
+        RaycastHit sphereCastHit;
+        Physics.SphereCast(playerCamera.position, predictionSphereCastRadius, playerCamera.forward, out sphereCastHit, maxSwingDistance);
+
+        RaycastHit raycastHit;
+        Physics.Raycast(playerCamera.position, playerCamera.forward, out raycastHit, maxSwingDistance);
+
+        Vector3 realHitPoint;
+
+        if (raycastHit.point != Vector3.zero)
+        {
+            realHitPoint = raycastHit.point;
+        }
+        else if (sphereCastHit.point != Vector3.zero)
+        {
+            realHitPoint = sphereCastHit.point;
+        }
+        else
+        {
+            realHitPoint = Vector3.zero;
+        }
+
+        if (realHitPoint != Vector3.zero)
+        {
+            predictionPoint.gameObject.SetActive(true);
+            predictionPoint.position = realHitPoint;
+        }
+        else
+        {
+            predictionPoint.gameObject.SetActive(false);
+        }
+
+        predictionHit = raycastHit.point == Vector3.zero ? sphereCastHit : raycastHit;
     }
 
 }
