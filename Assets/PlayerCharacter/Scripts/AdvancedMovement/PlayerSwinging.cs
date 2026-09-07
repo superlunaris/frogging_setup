@@ -28,6 +28,11 @@ public class PlayerSwinging : MonoBehaviour
     public float predictionSphereCastRadius;
     public Transform predictionPoint;
 
+    protected virtual void Awake()
+    {
+        //playerMovementController = GetComponent<playerMovementController>();
+    }
+
     void Update()
     {
         CheckForValidPoints();
@@ -84,6 +89,7 @@ public class PlayerSwinging : MonoBehaviour
         lineRenderer.positionCount = 0;
         Destroy(joint);
     }
+
 
     private void AerialMobility()
     {
