@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("Speed")]
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
@@ -14,14 +14,22 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDrag;
 
+    [Header("Jump")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
 
+    [Header("Leap")]
+    public float leapVerticalForce;
+    public float leapHorizontalForce;
+    public float leapCooldown;
+    bool readyToLeap;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode leapKey = KeyCode.LeftShift;
+    //public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode restartKey = KeyCode.R;
 
     [Header("Ground Check")]
@@ -47,13 +55,14 @@ public class PlayerMovement : MonoBehaviour
     public enum MovementState
     {
         walking,
-        sprinting,
+        leaping,
         airborne,
         swinging,
         freeze
     }
 
     public bool swinging;
+    public bool leaping;
     public bool freeze;
     public bool activeGrapple;
 
@@ -62,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true; 
         readyToJump = true;
+        readyToLeap = true;
     }
 
     private void Update()
@@ -105,6 +115,15 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
+        if (Input.GetKey(leapKey) && readyToLeap && grounded)
+        {
+            readyToLeap = false;
+
+            Leap();
+
+            Invoke(nameof(ResetLeap), leapCooldown);
+        }
     }
 
     private void StateHandler()
@@ -117,13 +136,8 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.linearVelocity = Vector3.zero;
         }
         */
-        
-        if (grounded && Input.GetKey(sprintKey))
-        {
-            state = MovementState.sprinting;
-            moveSpeed = sprintSpeed;
-        }
-        else if (grounded)
+
+        if (grounded)
         {
             state = MovementState.walking;
             moveSpeed = walkSpeed;
@@ -131,7 +145,12 @@ public class PlayerMovement : MonoBehaviour
         else if (swinging)
         {
             state = MovementState.swinging;
-            moveSpeed = swingSpeed; 
+            moveSpeed = swingSpeed;
+        }
+        else if (leaping)
+        {
+            state = MovementState.leaping;
+            //moveSpeed = leapHorizontalForce;
         }
         else
         {
@@ -185,6 +204,21 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void Leap()
+    {
+        leaping = true;
+        //rigidBody.linearVelocity = new Vector3(rigidBody.linearVelocity.x, 0f, rigidBody.linearVelocity.z);
+
+        rigidBody.AddForce(transform.up * leapVerticalForce, ForceMode.Impulse);
+        rigidBody.AddForce(orientation.forward * leapHorizontalForce, ForceMode.Impulse);
+    }
+
+    private void ResetLeap()
+    {
+        leaping = false;
+        readyToLeap = true;
     }
 
     private bool enableMovementOnNextTouch;
