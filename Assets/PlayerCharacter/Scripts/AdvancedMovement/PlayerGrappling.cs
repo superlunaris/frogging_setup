@@ -67,9 +67,11 @@ public class PlayerGrappling : MonoBehaviour
         }
         else
         {
-            grapplePoint = playerCamera.position + playerCamera.forward * maxGrappleDistance;
+            StopGrapple();
 
-            Invoke(nameof(StopGrapple), grappleDelay);
+            //grapplePoint = playerCamera.position + playerCamera.forward * maxGrappleDistance;
+
+            //Invoke(nameof(StopGrapple), grappleDelay);
         }
 
         lineRenderer.enabled = true;

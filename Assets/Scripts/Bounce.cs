@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    [SerializeField] private float bounceForce = 20f;
+    [SerializeField] private float bounceForce = 100f;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -12,7 +12,7 @@ public class Bounce : MonoBehaviour
         {
             rigidBody.linearVelocity = Vector3.zero;
 
-            Vector3 bounceDirection = transform.up;
+            Vector3 bounceDirection = Vector3.up;
 
             rigidBody.AddForce(bounceDirection * bounceForce, ForceMode.Impulse);
         }
