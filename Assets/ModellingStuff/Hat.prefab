@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1319170345208454319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.311375
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.110499
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 110.790375
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      propertyPath: m_Name
+      value: Hat
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8375070800690362647}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1460533370437322775}
+  m_SourcePrefab: {fileID: 100100000, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+--- !u!1 &2202202637110878718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 572b5422eddf1dc4a9e856023b25794e, type: 3}
+  m_PrefabInstance: {fileID: 1319170345208454319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8375070800690362647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202202637110878718}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9498558, y: 1.9999998, z: 2.1567414}
+  m_Center: {x: 0, y: 0, z: 1.0251681}
+--- !u!114 &1460533370437322775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202202637110878718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1bb7b8e520db64eb2b4bc2ecbdd5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectible
