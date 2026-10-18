@@ -15,30 +15,41 @@ public class Dialogue : MonoBehaviour
     private bool StartText;
     private bool Finished;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public DialogueManager dialogueManager;
+
+    private void Start()
+    {
+        Done = false;
+        Finished = false;
+        Panel.SetActive(false);
+        StartText = false;
+    }
+
     void Update()
     {
-
-
-        if (StartText)
+        if (!dialogueManager.isWaiting && StartText)
         {
 
             Panel.SetActive(true);
             textbox.text = Lines[Index];
 
             StartCoroutine(Waiting());
+            dialogueManager.isWaiting = true;
         }
 
-        if (Done) 
+        if (!dialogueManager.isWaiting && Done)
         {
             Index = 1;
             textbox.text = Lines[Index];
 
             StartCoroutine(Finishing());
+            dialogueManager.isWaiting = true;
         }
 
         if (Finished)
         {
+            Index = 0;
+            Finished = false;
             textbox.text = "";
             Panel.SetActive(false);
         }
@@ -47,30 +58,26 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Index = 0;
-        StartText = true;
-
-    }
-
-    private void Start()
-    {
-        Done = false;
-        Finished = false;
-        Panel.SetActive(false);
-        StartText = false;
-        
-        
+        if (other.CompareTag("Player"))
+        {
+            StartText = true;
+        }
     }
 
     IEnumerator Waiting()
     {
+        print("yolo");
         yield return new WaitForSeconds(Timer);
         Done = true;
+        StartText = false;
+        dialogueManager.isWaiting = false;
     }
 
     IEnumerator Finishing()
     {
         yield return new WaitForSeconds(Timer);
+        dialogueManager.isWaiting = false;
+        Done = false;
         Finished = true;
     }
 
