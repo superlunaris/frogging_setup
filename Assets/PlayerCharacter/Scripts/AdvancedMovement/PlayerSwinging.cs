@@ -9,6 +9,7 @@ public class PlayerSwinging : MonoBehaviour
     public LineRenderer lineRenderer;
     public Transform tongueTip, playerCamera, playerModel;
     public LayerMask isSwingable;
+    public LayerMask ignoreLayer;
     public PlayerMovement playerMovement;
 
     [Header("Swinging")]
@@ -149,10 +150,10 @@ public class PlayerSwinging : MonoBehaviour
         if (joint != null) return;
 
         RaycastHit sphereCastHit;
-        Physics.SphereCast(playerCamera.position, predictionSphereCastRadius, playerCamera.forward, out sphereCastHit, maxSwingDistance);
+        Physics.SphereCast(playerCamera.position, predictionSphereCastRadius, playerCamera.forward, out sphereCastHit, maxSwingDistance, ~ignoreLayer);
 
         RaycastHit raycastHit;
-        Physics.Raycast(playerCamera.position, playerCamera.forward, out raycastHit, maxSwingDistance);
+        Physics.Raycast(playerCamera.position, playerCamera.forward, out raycastHit, maxSwingDistance, ~ignoreLayer);
 
         Vector3 realHitPoint;
 

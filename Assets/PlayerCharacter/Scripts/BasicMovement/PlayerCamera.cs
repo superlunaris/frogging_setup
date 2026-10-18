@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] private float sensX;
-    [SerializeField] private float sensY;
+    public float sensX;
+    public float sensY;
 
     [SerializeField] private float maxLookAngleL;
     [SerializeField] private float maxLookAngleR;

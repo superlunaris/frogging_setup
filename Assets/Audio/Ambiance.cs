@@ -10,15 +10,13 @@ public class Ambiance : MonoBehaviour
     public AudioSource audioSource;
     private Coroutine musicTransition;
 
-    private void Start()
-    {
-        //audioSource = Camera.main.GetComponent<AudioSource>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            if (audioSource.isPlaying && audioSource.clip == areaMusic) return;
+            
             if (musicTransition != null)
             {
                 StopCoroutine(musicTransition);

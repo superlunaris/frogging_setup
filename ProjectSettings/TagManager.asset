@@ -16,7 +16,7 @@ TagManager:
   - 
   - IsGround
   - IsSwingable
-  - 
+  - ignoreLayer
   - 
   - 
   - 
