@@ -7,7 +7,6 @@ Controls (Keyboard & Mouse):
 - Hold Left Click/LMB/M1 to latch for swinging 
 - click right Click/RMB/M2 to grapple (only flies can be grappled to)
 - R to reset 
-- 0-7 teleports to start/end of area + some points between (essentially platform skips)
 
 How to Play:
 - Use the movement mechanics to get around the environment, jump on mushrooms to bounce, use anything you can latch
