@@ -2944,15 +2944,15 @@ RectTransform:
   m_GameObject: {fileID: 389839009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8346881, y: 6.220188, z: 1.8346881}
+  m_LocalScale: {x: 2.4995792, y: 8.474384, z: 2.4995792}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1670884666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -775.0601, y: 526.22}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 111.328125, y: 736.18005}
+  m_SizeDelta: {x: 121, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &389839011
 MonoBehaviour:
@@ -5318,15 +5318,15 @@ RectTransform:
   m_GameObject: {fileID: 933075659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8346881, y: 6.220188, z: 1.8346881}
+  m_LocalScale: {x: 2.4995792, y: 8.474384, z: 2.4995792}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1670884666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -780, y: 507}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 104.59375, y: 710}
+  m_SizeDelta: {x: 121, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933075661
 MonoBehaviour:
@@ -10073,10 +10073,10 @@ RectTransform:
   - {fileID: 389839010}
   m_Father: {fileID: 2019165238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 141}
-  m_SizeDelta: {x: 1856, y: 912}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0.005004883, y: 141}
+  m_SizeDelta: {x: 120, y: 912}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670884667
 MonoBehaviour:
@@ -10091,7 +10091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0.8156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
