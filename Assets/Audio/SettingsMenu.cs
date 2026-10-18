@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public GameObject settingsMenu;
     public AudioMixer audioMixer;
     public Slider volumeSlider;
 
@@ -29,16 +30,25 @@ public class SettingsMenu : MonoBehaviour
     {
         if (!cursor && Input.GetKeyDown(KeyCode.Escape))
         {
+            settingsMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             cursor = true;
         }
         else if (cursor && Input.GetKeyDown(KeyCode.Escape))
         {
+            settingsMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             cursor = false;
         }
+    }
+
+    public void QuitGame()
+    {
+
+        print("player has quit!");
+        Application.Quit();
     }
 
     void LoadSettings()
