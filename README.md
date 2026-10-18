@@ -1,4 +1,5 @@
 Controls (Keyboard & Mouse):
+- Esc for menu/settings
 - WASD to move
   - Same function while swinging
 - Spacebar to jump
