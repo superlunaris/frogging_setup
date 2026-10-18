@@ -12,8 +12,8 @@ public class SettingsMenu : MonoBehaviour
     public PlayerCamera playerCamera;
     public Slider sensitivitySlider;
 
-    public PlayerSwinging playerSwinging;
-    public Slider aimAssistSlider;
+    //public PlayerSwinging playerSwinging;
+    //public Slider aimAssistSlider;
 
     bool cursor = false;
 
