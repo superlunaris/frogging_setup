@@ -12,7 +12,7 @@ Controls (Keyboard & Mouse):
 How to Play:
 - Use the movement mechanics to get around the environment, jump on mushrooms to bounce, use anything you can latch
   onto to swing around and gain height by holding Spacebar while using WASD to move maneuver. See if you can find 
-  the 7 hidden hats around the environment
+  the 6 hidden hats around the environment
 
 Expected Content Experience
 - A smooth movement based exploration game where you find and collect hats
